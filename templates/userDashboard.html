@@ -1,0 +1,29 @@
+
+
+{% extends "layout.html" %}
+{% block profile %}
+    <div class="user-profile">
+
+        <div class="card text-center">
+        <div class="card-header">
+                <h1>Welcome, {{ userName }}</h1>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Mend your mind with easse.</p>
+            <a href="#" class="btn btn-outline-success" role="button" data-bs-toggle="button">Edit Profile</a>
+            <a href="/logout/user" class="btn btn-outline-danger" role="button" data-bs-toggle="button">Log Out</a>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block operations %} 
+<div class="d-grid gap-2 col-6 mx-auto">
+    <br>
+    <a href = '/user/writePost' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">✍️ MAKE A POST, LET US KNOW YOUR CONCERNS ✍️</a>
+    <a href = '/login/user/showAllPosts' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">✅ ALL PREVIOUS POSTS AND COMMENTS ✅</a>
+    <a href = '/login/user/requestAppointment' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">🎥 MAKE APPOINTMENT WITH A PROFESSIONAL 🎥</a>
+    <a href = '/login/user/showAllAppointments' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">✅⚠️❌ SHOW ALL APPOINTMENTS  ❌⚠️✅</a>
+  </div>
+{% endblock %}

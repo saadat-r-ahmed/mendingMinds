@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block profile %}
+<div class="user-profile">
+	<div class="card text-center">
+		<div class="card-header">
+			<h1>Welcome sir, {{ userName }}</h1>
+		</div>
+		<div class="card-body">
+			<p class="card-text">Please help the minds to ease.</p>
+			<a href="#" class="btn btn-outline-success" role="button" data-bs-toggle="button">Edit Profile</a>
+			<a href="/prof/logout" class="btn btn-outline-danger" role="button" data-bs-toggle="button">Log Out</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{{ allPosts }}
+
+{% block operations %}
+
+{% for currentPost in allPosts %}
+<br>
+
+<div class="col d-flex justify-content-center">
+	<div class="card" style="width: 40rem;">
+		<div class="card-header">
+			<strong>{{currentPost[0][1]}} || </strong>
+            <!-- ! name of the user who posted -->
+            <a href="mailto:{{currentPost[0][2]}}">{{currentPost[0][2]}}</a>
+            <!-- ! user email -->
+            <br>
+            <p>{{currentPost[0][3]}}</p>
+
+        </div>
+        <div class="card-body">
+        {% set comments = currentPost[1] %}
+        {% for i in  comments %}
+            <!-- ! comments -->
+            <b style="color: rgb(83, 77, 77)">{{i[0]}}</b> <br>
+            <p style="color: rgb(93, 89, 89)"">{{i[1]}}</p>
+            <hr>
+        {% endfor %}
+		</div>
+
+        <!-- ! new comment to the post
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <form method = 'POST' action = '/login/prof/makePosts' style="width: 35rem;">
+          <div class="form-group row">
+            <label class="col-2"></label> 
+            <div class="col-10">
+              <textarea id="profComment" name="profComment" cols="40" rows="3" class="form-control" required="required"></textarea>
+              <input id = 'postID' name = 'postID' type="hidden" value = '{{ currentPost[0][0] }}'>
+            </div>
+          </div> 
+          <div class="form-group row">
+            <div class="offset-2 col-10">
+              <button name="submit" type="submit" class="btn btn-primary">Comment</button>
+            </div>
+          </div> -->
+        </form>
+
+	</div>
+</div>
+
+
+{% endfor %}
+
+{% endblock %}

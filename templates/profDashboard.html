@@ -1,0 +1,28 @@
+
+
+{% extends "layout.html" %}
+{% block profile %}
+    <div class="user-profile">
+
+        <div class="card text-center">
+        <div class="card-header">
+                <h1>Welcome sir, {{ userName }}</h1>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Please help the minds to ease.</p>
+            <a href="#" class="btn btn-outline-success" role="button" data-bs-toggle="button">Edit Profile</a>
+            <a href="/prof/logout" class="btn btn-outline-danger" role="button" data-bs-toggle="button">Log Out</a>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block operations %} 
+<div class="d-grid gap-2 col-6 mx-auto">
+    <br>
+    <a href = '/login/prof/showAllPosts' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">💆 SHOW ALL POSTS 💆</a>
+    <a href = '/login/prof/showAppointmentReq' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">🙏 ALL APPOINTMENT REQUEST 🙏</a>
+    <a href = '/login/prof/showAllAppointments' type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">🥼 ALL APPOINTMENTS 🥼</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block profile %}
+    <div class="user-profile">
+
+        <div class="card text-center">
+        <div class="card-header">
+                <h1>Welcome, {{ userName }}</h1>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Mend your mind with easse.</p>
+            <a href="#" class="btn btn-outline-success" role="button" data-bs-toggle="button">Edit Profile</a>
+            <a href="/logout/user" class="btn btn-outline-danger" role="button" data-bs-toggle="button">Log Out</a>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{{ tableData }}
+
+{% block operations %} 
+
+<!-- goto here -->
+<center><h1>ALL APPOINTMENTS</h1></center>
+<div class="container">
+    <div class="row">
+    <table id="example" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+       <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Doc Email</th>
+            <th>Status</th>
+            <th>Appointment Data & Time</th>
+            <th>Appointment URL</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Request ID</th>
+            <th>Doc Email</th>
+            <th>Status</th>
+            <th>Appointment Data & Time</th>
+            <th>Appointment URL</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          
+            {% for data in tableData %}
+            <tr>
+                <th> {{ data[0] }}</th>
+                <th> <a href="mailto: {{ data[2] }}"> {{ data[2] }} </a></th>
+                <th> {{ data[3] }}</th>
+                <th> {{ data[4] }}</th>
+                <th> <a href="{{ data[5] }}"> Zoom Meeting Link </a></th>
+
+            </tr>
+            {% endfor %}
+     
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+  
+  
+  
+
+
+{% endblock %}

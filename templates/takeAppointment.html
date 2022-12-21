@@ -1,0 +1,49 @@
+
+
+{% extends "layout.html" %}
+{% block profile %}
+    <div class="user-profile">
+
+        <div class="card text-center">
+        <div class="card-header">
+                <h1>Welcome, {{ userName }}</h1>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Mend your mind with easse.</p>
+            <a href="#" class="btn btn-outline-success" role="button" data-bs-toggle="button">Edit Profile</a>
+            <a href="/logout/user" class="btn btn-outline-danger" role="button" data-bs-toggle="button">Log Out</a>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block operations %}
+
+{% for doc in docs %}
+<br>
+
+<div class="col d-flex justify-content-center">
+	<div class="card" style="width: 40rem;">
+		<div class="card-header">
+			<strong>{{ doc[0] }} || </strong>
+            <!-- ! name of the user who posted -->
+            <a href="mailto:{{doc[1]}}">{{ doc[1] }}</a>
+            <!-- ! user email -->
+        </div>
+        <div class="card-body">
+            <form action="/login/user/requestAppointment/req" method = 'POST'>
+                <input type = 'hidden' value = "{{ doc[1] }}" id = "docID" name = 'docID'>
+                <div class="offset-2 col-10">
+                    <button name="submit" type="submit" class="btn btn-primary">REQUEST FOR AN APPOINTMENT</button>
+                </div>
+            </form>
+        </div>
+
+	</div>
+</div>
+
+
+{% endfor %}
+
+{% endblock %}
